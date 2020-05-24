@@ -16,7 +16,7 @@ Z = nr.net_map_net
 
 
 mycmap = plt.get_cmap('RdYlGn')
-ax1.set_title('Net Return Colormap')
+ax1.set_title('Net Return Surface Plot')
 ax1.set_zlabel('Net Return ($)')
 ax1.set_xlabel('Spread')
 ax1.set_ylabel('Total Points')
