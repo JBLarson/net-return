@@ -64,8 +64,8 @@ ym6 = []
 
 
 
-tp_pts = range(40, 46)
-spr_pts = range(-4, 2)
+tp_pts = range(36, 46)
+spr_pts = range(-6, 4)
 
 for num in tp_pts:
 	tp_range.append(num)
@@ -139,3 +139,5 @@ spr_net = nspr_net
 
 
 n3t = DataFrame({'pts':tp_scores, 'tp_net':tp_net, 'score':spr_scores, 'spr_net':spr_net})
+
+
