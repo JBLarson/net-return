@@ -1,4 +1,3 @@
-import sys
 from pandas import DataFrame
 import pandas as pd
 import numpy as np
@@ -184,10 +183,10 @@ net_map_net = pd.DataFrame({'s0': net0, 's1': net1, 's2': net2, 's3': net3, 's4'
 
 
 
-print()
-print(net_xmap)
-print()
-print(net_ymap)
+#print(net_xmap)
+#print()
+#print(net_ymap)
+
 print()
 print(net_map_net)
 
@@ -195,6 +194,30 @@ print(net_map_net)
 print()
 
 
+#notation explained raw column 0
+rc0 = net_map_net['s0']
+rc1 = net_map_net['s1']
+rc2 = net_map_net['s2']
+
+
+#notation explained quadrant 1_ column 0
+q1_0 = rc0[0:3].tolist()
+q1_1 = rc1[0:3].tolist()
+q1_2 = rc2[0:3].tolist()
+
+
+print(q1_0)
+
+print(q1_1)
+print(q1_2)
+
+quadrant1 = [q1_0, q1_1, q1_2]
+
+
+print()
+print(quadrant1)
+
+#print(q3_0)
 
 
 
