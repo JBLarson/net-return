@@ -2,23 +2,22 @@ from pandas import DataFrame
 import pandas as pd
 import numpy as np
 
-import input_twob_model as tp
-import input_spr_model as inp
+import input_nr as inp
 
 #localize input variables
-fb1s = inp.b1s
-db2s = inp.b2s
-fb1r = inp.b1r
-db2r = inp.b2r
-fb1w = inp.b1w
-db2w = inp.b2w
+ob1s = inp.b1s
+ub2s = inp.b2s
+ob1r = inp.b1r
+ub2r = inp.b2r
+ob1w = inp.b1w
+ub2w = inp.b2w
 
-ob1s = tp.b1s
-ub2s = tp.b2s
-ob1r = tp.b1r
-ub2r = tp.b2r
-ob1w = tp.b1w
-ub2w = tp.b2w
+fb1s = inp.fb1s
+db2s = inp.db2s
+fb1r = inp.fb1r
+db2r = inp.db2r
+fb1w = inp.fb1w
+db2w = inp.db2w
 
 tp_range = []
 tp_df = DataFrame()
