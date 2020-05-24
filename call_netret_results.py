@@ -6,8 +6,7 @@ np.set_printoptions(threshold=np.inf)
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
-import input_twob_model as tp
-import input_spr_model as inp
+import input_nr as inp
 import netret_results as nr
 
 
