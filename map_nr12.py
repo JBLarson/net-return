@@ -6,7 +6,7 @@ np.set_printoptions(threshold=np.inf)
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
-import nr_results2 as nr
+import nr_results as nr
 
 
 #renamed map_nr.py from build_xynet_nr.py from call_nr_results3.py from netret5.py
