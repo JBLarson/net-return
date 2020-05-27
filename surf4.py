@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d
 import map_nr as nr
 import input_nr as inp
-#renamed to surf_nr.py from alt_model_nr2.py
 
 
 
@@ -72,8 +71,8 @@ ax4.set_zlim(np.min(Z), np.max(Z))
 fig.colorbar(surf4, ax=ax4, shrink=.7, aspect=15)
 
 
-ax1.view_init(40, 75)
-ax2.view_init(40, 15)
+ax1.view_init(40, 55)
+ax2.view_init(40, 35)
 ax3.view_init(90, 90)
 ax4.view_init(0, 0)
 
