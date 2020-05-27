@@ -2,28 +2,41 @@
 def gamble(y,z):
 	return round((y*(z-1)),ndigits=2)
 
-
 #over and under inputs
-o1s = float(48)
+o1s = float(45)
 o1t = ("o")
 o1o = float(1.67)
 o1r = float(30)
 
-u1s = float(50)
+u1s = float(47)
 u1t = ("u")
 u1o = float(1.76)
-u1r = float(5)
+u1r = float(50)
 
 #favorite and dog inputs
-f1s = float(-5)
+f1s = float(-7)
 f1t = ("f")
 f1o = float(1.67)
-f1r = float(8)
+f1r = float(80)
 
-d1s = float(10)
+d1s = float(9)
 d1t = ("d")
 d1o = float(1.76)
-d1r = float(40)
+d1r = float(60)
+
+
+exp_spr = -8
+spr_pts = range(exp_spr-6, exp_spr+6)
+
+avg_tp = (o1s + u1s)/2
+lo_tp = int(avg_tp - 6)
+hi_tp = int(avg_tp + 6)
+tp_pts = range(lo_tp, hi_tp)
+
+
+
+
+
 
 
 o1w = round(gamble(o1r,o1o),ndigits=2)
@@ -68,16 +81,3 @@ elif comb == 'df':
 	print("Bet 1 | dog:",d1s,"pt - Risks: $",d1r,"Net: $",d1w)
 	print("Bet 2 | fav:",f1s,"pt - Risks: $",f1r,"Net : $",f1w)
 
-
-
-
-#ranges for DataFrames and visual
-
-avg_tp = (o1s + u1s)/2
-lo_tp = int(avg_tp - 5)
-hi_tp = int(avg_tp + 5)
-tp_pts = range(lo_tp, hi_tp)
-
-
-hi_spr = -8
-spr_pts = range(hi_spr, hi_spr+10)
