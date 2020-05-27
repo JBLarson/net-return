@@ -39,6 +39,8 @@ net6 = []
 net7 = []
 net8 = []
 net9 = []
+net10 = []
+net11 = []
 
 spr0 = []
 spr1 = []
@@ -50,6 +52,8 @@ spr6 = []
 spr7 = []
 spr8 = []
 spr9 = []
+spr10 = []
+spr11 = []
 
 xm0 = []
 xm1 = []
@@ -61,6 +65,8 @@ xm6 = []
 xm7 = []
 xm8 = []
 xm9 = []
+xm10 = []
+xm11 = []
 
 ym0 = []
 ym1 = []
@@ -72,6 +78,8 @@ ym6 = []
 ym7 = []
 ym8 = []
 ym9 = []
+ym10 = []
+ym11 = []
 
 
 tp_pts = inp.tp_pts
@@ -117,13 +125,16 @@ for pt in spr_pts:
 			d1_rez.append(d1w)
 
 #append lists to df's and create net df's
-tp_df['ob1'] = o1_rez
-tp_df['ub2'] = u1_rez
-tp_df['tp_net'] = round((tp_df['ob1'] + tp_df['ub2']), ndigits=2)
+tp_df['o1'] = o1_rez
+tp_df['u1'] = u1_rez
+tp_df['tp_net'] = round((tp_df['o1'] + tp_df['u1']), ndigits=2)
 
-spr_df['fb1'] = f1_rez
-spr_df['db2'] = d1_rez
-spr_df['spr_net'] = round((spr_df['fb1'] + spr_df['db2']), ndigits=2)
+spr_df['f1'] = f1_rez
+spr_df['d1'] = d1_rez
+spr_df['spr_net'] = round((spr_df['f1'] + spr_df['d1']), ndigits=2)
+
+
+
 
 #create df variables from dataframes
 dtp_net = DataFrame(tp_df['tp_net'])
@@ -149,5 +160,4 @@ spr_net = nspr_net
 
 
 n3t = DataFrame({'pts':tp_scores, 'tp_net':tp_net, 'score':spr_scores, 'spr_net':spr_net})
-
 
