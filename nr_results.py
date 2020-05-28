@@ -4,125 +4,40 @@ import numpy as np
 
 import input_nr as inp
 
-#localize input variables
-o1s = inp.o1s
-u1s = inp.u1s
-o1r = inp.o1r
-u1r = inp.u1r
-o1w = inp.o1w
-u1w = inp.u1w
-
-f1s = inp.f1s
-d1s = inp.d1s
-f1r = inp.f1r
-d1r = inp.d1r
-f1w = inp.f1w
-d1w = inp.d1w
-
-tp_range = []
 tp_df = DataFrame()
-o1_rez = []
-u1_rez = []
-
-spr_range = []
 spr_df = DataFrame()
-f1_rez = []
-d1_rez = []
 
-net0 = []
-net1 = []
-net2 = []
-net3 = []
-net4 = []
-net5 = []
-net6 = []
-net7 = []
-net8 = []
-net9 = []
-net10 = []
-net11 = []
+tp_range = [pt for pt in inp.tp_pts]
+spr_range = [pt for pt in inp.spr_pts]
 
-spr0 = []
-spr1 = []
-spr2 = []
-spr3 = []
-spr4 = []
-spr5 = []
-spr6 = []
-spr7 = []
-spr8 = []
-spr9 = []
-spr10 = []
-spr11 = []
-
-xm0 = []
-xm1 = []
-xm2 = []
-xm3 = []
-xm4 = []
-xm5 = []
-xm6 = []
-xm7 = []
-xm8 = []
-xm9 = []
-xm10 = []
-xm11 = []
-
-ym0 = []
-ym1 = []
-ym2 = []
-ym3 = []
-ym4 = []
-ym5 = []
-ym6 = []
-ym7 = []
-ym8 = []
-ym9 = []
-ym10 = []
-ym11 = []
-
-
-tp_pts = inp.tp_pts
-spr_pts = inp.spr_pts
-
-for num in tp_pts:
-	tp_range.append(num)
 tp_df['tp'] = tp_range
-
-for num in spr_pts:
-	spr_range.append(num)
 spr_df['spr'] = spr_range
 
-#find df results for over
-for pt in tp_pts:
-	if pt < o1s:
-		o1_rez.append(-o1r)
-	elif pt >= o1s:
-		o1_rez.append(o1w)
-#find df results for under
-for pt in tp_pts:
-	if pt > u1s:
-		u1_rez.append(-u1r)
-	elif pt <= u1s:
-		u1_rez.append(u1w)
+#find df results
 
-#find df results for fav bets (-spr)
-for pt in spr_pts:
-	if pt >= f1s:
-		f1_rez.append(-f1r)
-	elif pt < f1s:
-		f1_rez.append(f1w)
+o1_rez = [inp.o1w if n >= inp.o1s else -inp.o1r for n in inp.tp_pts]
 
-#find df results for dog bets (+spr)
-for pt in spr_pts:
+u1_rez = [-inp.u1r if n >= inp.u1s else inp.u1w for n in inp.tp_pts]
+
+f1_rez = [-inp.f1r if n >= inp.f1s else inp.f1w for n in inp.spr_pts]
+
+
+
+#find df results for dog bets (struggled to create list comprehension because of +spr)
+
+d1_rez = []
+
+for pt in inp.spr_pts:
 	if pt < 0:	
-		if abs(pt) >= d1s:
-			d1_rez.append(-d1r)
-		elif abs(pt) < d1s:
-			d1_rez.append(d1w)
+		if abs(pt) >= inp.d1s:
+			d1_rez.append(-inp.d1r)
+		elif abs(pt) < inp.d1s:
+			d1_rez.append(inp.d1w)
 	elif pt >= 0:
-		if d1s >= 0:	
-			d1_rez.append(d1w)
+		if inp.d1s >= 0:	
+			d1_rez.append(inp.d1w)
+
+
 
 #append lists to df's and create net df's
 tp_df['o1'] = o1_rez
@@ -132,7 +47,6 @@ tp_df['tp_net'] = round((tp_df['o1'] + tp_df['u1']), ndigits=2)
 spr_df['f1'] = f1_rez
 spr_df['d1'] = d1_rez
 spr_df['spr_net'] = round((spr_df['f1'] + spr_df['d1']), ndigits=2)
-
 
 
 
@@ -153,11 +67,72 @@ nspr_scores = np.array(dspr_scores[0:]).tolist()
 #create array variables from numpy array variables
 tp_scores = ntp_scores
 spr_scores = nspr_scores
-
-#tp/spr net w/o rounding
 tp_net = ntp_net
 spr_net = nspr_net
 
 
 n3t = DataFrame({'pts':tp_scores, 'tp_net':tp_net, 'score':spr_scores, 'spr_net':spr_net})
+
+
+xm0 = []
+xm1 = []
+xm2 = []
+xm3 = []
+xm4 = []
+xm5 = []
+xm6 = []
+xm7 = []
+xm8 = []
+xm9 = []
+xm10 = []
+xm11 = []
+
+#create list mapping x-values
+for n in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']:
+	for s in [f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))', f'((spr_scores[{n}]))']:
+		eval(f'xm{n}').append(eval(s))
+
+xmap = (xm0, xm1, xm2, xm3, xm4, xm5, xm6, xm7, xm8, xm9, xm10, xm11)
+
+ym0 = []
+ym1 = []
+ym2 = []
+ym3 = []
+ym4 = []
+ym5 = []
+ym6 = []
+ym7 = []
+ym8 = []
+ym9 = []
+ym10 = []
+ym11 = []
+
+#create list mapping y-values
+for n in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']:
+	for s in [f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))', f'((tp_scores[{n}]))']:
+		eval(f'ym{n}').append(eval(s))
+
+ymap = (ym0, ym1, ym2, ym3, ym4, ym5, ym6, ym7, ym8, ym9, ym10, ym11)
+
+
+
+net0 = []
+net1 = []
+net2 = []
+net3 = []
+net4 = []
+net5 = []
+net6 = []
+net7 = []
+net8 = []
+net9 = []
+net10 = []
+net11 = []
+
+
+for n in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']:
+	for s in [f'sum(tp_net[11]+spr_net[{n}])', f'sum(tp_net[10]+spr_net[{n}])', f'sum(tp_net[9]+spr_net[{n}])', f'sum(tp_net[8]+spr_net[{n}])', f'sum(tp_net[7]+spr_net[{n}])', f'sum(tp_net[6]+spr_net[{n}])', f'sum(tp_net[5]+spr_net[{n}])', f'sum(tp_net[4]+spr_net[{n}])', f'sum(tp_net[3]+spr_net[{n}])', f'sum(tp_net[2]+spr_net[{n}])', f'sum(tp_net[1]+spr_net[{n}])', f'sum(tp_net[0]+spr_net[{n}])']:
+		eval(f'net{n}').append(eval(s))
+
+net_map = np.array([net0, net1, net2, net3, net4, net5, net6, net7, net8, net9, net10, net11])
 
