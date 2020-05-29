@@ -30,12 +30,9 @@ d1w = round(gamble(d1r,d1o),ndigits=2)
 
 #describe bets
 
-print()
-print("Total Points Bets")
 print("Over:",o1s,"pts - Risks: $",o1r,"Net: $",o1w)
 print("Under:",u1s,"pts - Risks: $",u1r,"Net: $",u1w)
 print()
-print("Spread Bets")
 print("Fav:",f1s,"pt - Risks: $",f1r,"Net: $",f1w)
 print("Dog:",d1s,"pt - Risks: $",d1r,"Net: $",d1w)
 print()
