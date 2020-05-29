@@ -9,7 +9,6 @@ spr_df = DataFrame()
 
 tp_range = [pt for pt in inp.tp_pts]
 spr_range = [pt for pt in inp.spr_pts]
-
 tp_df['tp'] = tp_range
 spr_df['spr'] = spr_range
 
