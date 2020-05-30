@@ -27,7 +27,6 @@ u1w = round(gamble(u1r,u1o),ndigits=2)
 f1w = round(gamble(f1r,f1o),ndigits=2)
 d1w = round(gamble(d1r,d1o),ndigits=2)
 
-
 #describe bets
 
 print("Over:",o1s,"pts - Risks: $",o1r,"Net: $",o1w)
@@ -36,3 +35,4 @@ print()
 print("Fav:",f1s,"pt - Risks: $",f1r,"Net: $",f1w)
 print("Dog:",d1s,"pt - Risks: $",d1r,"Net: $",d1w)
 print()
+
