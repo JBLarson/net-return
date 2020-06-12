@@ -1,4 +1,4 @@
-# Net Return Model
+# Net Result Model
 
 Enter score, risk, and odds for 4 wagers: over, under, favorite, dog.<br>
 Calculate net-result for 144 total point / spread pairings (12x12).<br>
@@ -30,7 +30,7 @@ nr_results.py
 2b) Create lists of monetary results for each wager.<br>
 2c) Add lists from step 2b to df's from step 2a, calculate net-spread and net-total-points.<br>
 2d) Create simple lists of net-spread / net-total-point values.<br>
-2e) Create 12 x 12 Numpy array of net-return (net_map).<br>
+2e) Create 12 x 12 Numpy array of net-result (net_map).<br>
 
 nr_surf.py
 -
@@ -41,4 +41,3 @@ nr_surf.py
 3d) Create colormap 'mycmap'. For each axis: add titles and create surf-plot.<br>
 3e) Assign view angle to each axis using 'view_init(elevation, azimuth)'<br>
 3f) Display matplotlib figure with 'plt.show()'<br>
-
