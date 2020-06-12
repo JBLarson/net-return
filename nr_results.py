@@ -42,7 +42,7 @@ dspr_net = DataFrame(spr_df['spr_net'])
 tp_net = np.array(dtp_net[0:]).tolist()
 spr_net = np.array(dspr_net[0:]).tolist()
 
-#2e create 12x12 Numpy array of net-return
+#2e create 12x12 Numpy array of net-results
 net0, net1, net2, net3, net4, net5 = [], [], [], [], [], []
 net6, net7, net8, net9, net10, net11= [], [], [], [], [], []
 
