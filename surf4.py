@@ -14,7 +14,6 @@ ax3 = fig.add_subplot(223, projection='3d')
 ax4 = fig.add_subplot(224, projection='3d')
 
 #3b create x/y variables, with values determined by 'range variables' from nr_input 
-X, Y/Z variables
 x = np.arange(inp.exp_spr-6, inp.exp_spr+6, 1)
 y = np.arange(inp.lo_tp, inp.hi_tp, 1)
 
