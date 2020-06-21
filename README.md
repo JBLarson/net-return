@@ -1,4 +1,4 @@
-# Net Result Surface Plot Model
+# Net Return Surface Plot Model
 
 Enter score, risk, and odds for 4 wagers: over, under, favorite, dog.<br>
 Calculate net-result for 144 total point / spread pairings (12x12).<br>
