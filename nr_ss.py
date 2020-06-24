@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d
 
-
 #import input_nr, create tp/spr DataFrames, add ranges to each
 import nr_input as inp
 
@@ -31,7 +30,6 @@ for pt in inp.spr_pts:
 	elif pt >= 0:
 		if inp.d1s >= 0:	
 			d1_rez.append(inp.d1w)
-
 
 def nr_result():
 
@@ -89,7 +87,7 @@ def roi_visual():
 
 	showroi = input('display roi figure: (y/n)')
 
-	fig = plt.figure(figsize=(15,9))
+	fig = plt.figure(figsize=(10,6))
 	ax1 = fig.add_subplot(111, projection='3d')
 	#ax2 = fig.add_subplot(111, projection='3d')
 
@@ -123,34 +121,6 @@ def roi_visual():
 
 		#display matplotlib figure
 		plt.show()
-
-	shownet = input('display net figure: (y/n)')
-
-
-	if shownet == 'y':
-		Z, Z1L = net_map, []
-
-		for zz in Z:
-			for z in zz: Z1L.append(z)
-
-		#create colormap. For each axis: define subplot titles and create surface plot
-		mycmap = plt.get_cmap('RdYlGn')
-		
-		ax1.set_zlabel('\nOutcome', fontsize=16)
-		ax1.set_xlabel('\nSpread', fontsize=16)
-		ax1.set_ylabel('\nTotal Points', fontsize=16)
-		surf1 = ax1.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=mycmap)
-		ax1.set_zlim(np.min(Z), np.max(Z))
-
-		scatter1 = ax1.scatter(X, Y, Z, c = Z1L, cmap='RdYlGn', edgecolors='black')
-
-		#assign view angles to each surface plot (elevation, azimuth)
-		ax1.view_init(45, 45)
-
-		#display matplotlib figure
-		plt.show()
-
-
 
 
 #create decorator for visual / net-map
@@ -165,9 +135,7 @@ def net_decr(net_visual):
 
 def net_visual():
 
-	showroi = input('display roi figure: (y/n)')
-
-	fig = plt.figure(figsize=(15,9))
+	fig = plt.figure(figsize=(10,6))
 	ax1 = fig.add_subplot(111, projection='3d')
 	#ax2 = fig.add_subplot(111, projection='3d')
 
@@ -177,33 +145,9 @@ def net_visual():
 
 	#use 'x' and 'y' to create Numpy meshgrid 'X, Y', assign net_map (from nr_results) to 'Z'
 	X, Y = np.meshgrid(x, y)
-	#change z1 to z and comment Z to display net-return graphic instead of net-result
-	
-	if showroi == 'y': 
-		Z, Z1L = net_ret, []
-
-		for zz in Z:
-			for z in zz: Z1L.append(z)
-
-		#create colormap. For each axis: define subplot titles and create surface plot
-		mycmap = plt.get_cmap('RdYlGn')
-		
-		ax1.set_zlabel('\nROI', fontsize=16)
-		ax1.set_xlabel('\nSpread', fontsize=16)
-		ax1.set_ylabel('\nTotal Points', fontsize=16)
-		surf1 = ax1.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=mycmap)
-		ax1.set_zlim(np.min(Z), np.max(Z))
-
-		scatter1 = ax1.scatter(X, Y, Z, c = Z1L, cmap='RdYlGn', edgecolors='black')
-
-		#assign view angles to each surface plot (elevation, azimuth)
-		ax1.view_init(45, 45)
-
-		#display matplotlib figure
-		plt.show()
+	#change z1 to z and comment Z to display net-return graphic instead of net-result	
 
 	shownet = input('display net figure: (y/n)')
-
 
 	if shownet == 'y':
 		Z, Z1L = net_map, []
@@ -214,7 +158,7 @@ def net_visual():
 		#create colormap. For each axis: define subplot titles and create surface plot
 		mycmap = plt.get_cmap('RdYlGn')
 		
-		ax1.set_zlabel('\nOutcome', fontsize=16)
+		ax1.set_zlabel('\nNet($)', fontsize=16)
 		ax1.set_xlabel('\nSpread', fontsize=16)
 		ax1.set_ylabel('\nTotal Points', fontsize=16)
 		surf1 = ax1.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=mycmap)
@@ -233,3 +177,4 @@ def net_visual():
 roi_visual()
 
 net_visual()
+
