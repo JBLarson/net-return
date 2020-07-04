@@ -54,7 +54,7 @@ def nr_result():
 	netd0, netd1, netd2, netd3, netd4, netd5 = [], [], [], [], [], []
 	netd6, netd7, netd8, netd9, netd10, netd11= [], [], [], [], [], []
 	for n in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']:
-		for s in [f'sum(tp_net[11]+spr_net[{n}])', f'sum(tp_net[10]+spr_net[{n}])', f'sum(tp_net[9]+spr_net[{n}])', f'sum(tp_net[8]+spr_net[{n}])', f'sum(tp_net[7]+spr_net[{n}])', f'sum(tp_net[6]+spr_net[{n}])', f'sum(tp_net[5]+spr_net[{n}])', f'sum(tp_net[4]+spr_net[{n}])', f'sum(tp_net[3]+spr_net[{n}])', f'sum(tp_net[2]+spr_net[{n}])', f'sum(tp_net[1]+spr_net[{n}])', f'sum(tp_net[0]+spr_net[{n}])']:
+		for s in [f'sum(spr_net[11]+tp_net[{n}])', f'sum(spr_net[10]+tp_net[{n}])', f'sum(spr_net[9]+tp_net[{n}])', f'sum(spr_net[8]+tp_net[{n}])', f'sum(spr_net[7]+tp_net[{n}])', f'sum(spr_net[6]+tp_net[{n}])', f'sum(spr_net[5]+tp_net[{n}])', f'sum(spr_net[4]+tp_net[{n}])', f'sum(spr_net[3]+tp_net[{n}])', f'sum(spr_net[2]+tp_net[{n}])', f'sum(spr_net[1]+tp_net[{n}])', f'sum(spr_net[0]+tp_net[{n}])']:
 			eval(f'netd{n}').append(eval(s))
 
 	global net_map, net_ret, X, Y, Z, Z1L
@@ -227,7 +227,7 @@ def ssnet_visual():
 #surface plot, scatter plot, surface / scatter (seperate axis')
 #surface / scatter ROI, surface / scatter net (same axis)
 
-d_surf, d_scat, d_ss = ('n'), ('n'), ('y')
+d_surf, d_scat, d_ss = ('n'), ('n'), ('n')
 d_ssroi, d_ssnet = ('n'), ('y')
 
 
