@@ -5,6 +5,11 @@ Calculate net-result for 144 total point / spread pairings (12x12).<br>
 Display 3D surface plots with spread(x-axis), total-points(y-axis), and net-result(z-axis).<br>
 
 
+![nrAnimation](https://user-images.githubusercontent.com/68449234/139372783-89a320bc-b559-4641-aa11-24af84578a45.gif)
+
+
+
+
 requirements
 -
 - [Numpy](https://numpy.org/)
