@@ -10,6 +10,10 @@ Display 3D surface plots with spread(x-axis), total-points(y-axis), and net-resu
 
 
 
+
+
+![netret_examples/four_surf.png](netret_examples/four_surf.png)
+
 requirements
 -
 - [Numpy](https://numpy.org/)
